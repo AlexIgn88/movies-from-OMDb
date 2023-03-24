@@ -1,3 +1,146 @@
 h1 {
     text-decoration:dotted underline;
 }
+
+body {
+    background-color: #fbf2e9;
+}
+
+#main,
+input,
+select,
+select option,
+button {
+    font-size: 20px;
+}
+
+#main,
+#form-for-search {
+    display: flex;
+    flex-direction: column;
+}
+
+#main {
+    font-family: sans-serif;
+    align-items: center;
+}
+
+.heading {
+    margin: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#form-for-search,
+#form-for-search input,
+#form-for-search select,
+.film-card,
+.film-details {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#form-for-search,
+.film-card,
+.film-details {
+    padding: 10px;
+}
+
+#form-for-search>div {
+    display: flex;
+}
+
+#form-for-search div {
+    margin: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    column-gap: 60px;
+}
+
+#form-for-search input {
+    padding-left: 15px;
+}
+
+#form-for-search select {
+    width: 100%;
+    padding-left: 10px;
+}
+
+#form-for-search button {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+}
+
+#result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#details {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.spinner {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.no-results {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.film-card,
+.film-details {
+    display: flex;
+    gap: 20px;
+}
+
+.film-card {
+    width: 330px;
+}
+
+.poster {
+    width: 200px;
+    height: 300px;
+}
+
+.film-info,
+.film-details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+
+.film-info .title {
+    font-weight: bold;
+}
+
+.film-info .year {
+    font-size: 22px;
+}
+
+.film-details-info>div {
+    display: flex;
+}
+
+.details-poster {
+    width: 300px;
+    height: 500px;
+}
+
+.film-details-info>div>div:first-child {
+    width: 100px;
+    font-weight: bold;
+}
+
+.hide {
+    display: none;
+}
