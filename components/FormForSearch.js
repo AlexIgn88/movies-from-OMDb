@@ -12,7 +12,7 @@ function FormForSearch({ inputValue, setInputValue, searchValue, setSearchValue,
         window.addEventListener('resize', scrollListener);
     });
 
-    console.log(pageNumber);
+    console.log('FormForSearch- ', pageNumber);
 
     function scrollListener() {
         if (isPlaceholderVisible() && !timerId)
