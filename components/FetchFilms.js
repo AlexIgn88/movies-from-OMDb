@@ -22,11 +22,14 @@ function FetchFilms({ text, detailsOfFilm, getIdOfFilm, pageNumber, setTimerId }
             }
         }
         go();
-    }, [text]);
+    }, [text, pageNumber]);
 
     if (error) return <div className="error">Oшибка {error.message}</div>;
 
     if (result) {
+        
+        console.log('FetchFilms- ', result);
+
         if (result.Response === 'True') return <FilmCards result={result} detailsOfFilm={detailsOfFilm} getIdOfFilm={getIdOfFilm} />
         else return <NoResults
             textOfErr={result.Error}

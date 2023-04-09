@@ -1,23 +1,86 @@
 import { useState, useEffect } from 'react';
-import FetchFilms from '../components/FetchFilms'
+// import FetchFilms from '../components/FetchFilms'
+
+import FilmCards from '../components/FilmCards'
+import NoResults from '../components/NoResults'
+
+
 import GetDetailsAboutFilm from '../components/GetDetailsAboutFilm'
 
-function FormForSearch({ inputValue, setInputValue, searchValue, setSearchValue, detailsOfFilm, getIdOfFilm }) {
+function FormForSearch() {
+    // { inputValue, setInputValue, searchValue, setSearchValue, detailsOfFilm, getIdOfFilm }
+
+    const [inputValue, setInputValue] = useState(''),
+        [searchValue, setSearchValue] = useState(''),
+        [detailsOfFilm, setdetailsOfFilm] = useState('');
+
+
     const
-        [pageNumber, setPageNumber] = useState(1),
-        [timerId, setTimerId] = useState(0);
+        [pageNumber, setPageNumber] = useState(1);
+
+    // [timerId, setTimerId] = useState(false),
+    const
+        [pages, setPages] = useState([]);
+
+    useEffect(() => {
+        fetch("https://www.omdbapi.com/?apikey=a2b07930&s=" + searchValue + "&page=" + pageNumber)
+            .then(res => res.json())
+            .then(objResult => {
+                let { Response: result } = objResult;
+                setPages(objResult);
+                // (result === 'True') ? showFilmCards(objResult) : noResults(objResult);
+            });
+    }, [searchValue, pageNumber])
+
+    // const
+    //     [result, setResult] = useState(null),
+    //     [error, setError] = useState(null);
+
+
+
+
+
+    // useEffect(() => {
+    //     async function go() {
+    //         try {
+    //             setError(null);
+    //             const response = await fetch(
+    //                 "https://www.omdbapi.com/?apikey=a2b07930&s=" + text + "&page=" + pageNumber
+    //             );
+    //             if (!response.ok) throw new Error(response.status);
+    //             setResult(await response.json()); setPages(result);
+    //         } catch (err) {
+    //             setError(err);
+    //         }
+    //     }
+    //     go();
+    // }, [searchValue, pageNumber]);
+
+    // console.log('FormForSearch-result ', result);
+    console.log('FormForSearch-pages ', pages);
+
+
+
 
     useEffect(() => {
         window.addEventListener('scroll', scrollListener);
         window.addEventListener('resize', scrollListener);
-    });
+        return function () {
+            window.removeEventListener('scroll', scrollListener);
+            window.removeEventListener('resize', scrollListener);
+        }
+    }, []);
 
-    console.log('FormForSearch- ', pageNumber);
+    // console.log('FormForSearch-pageNumber ', pageNumber);
 
     function scrollListener() {
         if (isPlaceholderVisible() && !timerId)
+            setPageNumber(pageNumber + 1);
 
-            setPageNumber(2);
+        // setTimerId(true);
+
+        // setTimerId(getNextPage());
+
         // timerId = getNextPage();
     }
 
@@ -26,19 +89,18 @@ function FormForSearch({ inputValue, setInputValue, searchValue, setSearchValue,
         return document.querySelector('.spinner').getBoundingClientRect().top < window.innerHeight;
     }
 
-    function getNextPage() {
-        // setPageNumber(3);
-        return <>
-            {searchValue && <FetchFilms
-                text={searchValue}
-                detailsOfFilm={detailsOfFilm}
-                getIdOfFilm={getIdOfFilm}
-                pageNumber={pageNumber}
-                setTimerId={setTimerId}
-            />
-            }
-        </>
-    }
+    // function getPage() {
+    //     // setPages(1);
+    //     // console.log(pages);
+    //     // return [...pages];
+    //     return <FetchFilms
+    //         text={searchValue}
+    //         detailsOfFilm={detailsOfFilm}
+    //         getIdOfFilm={getIdOfFilm}
+    //         pageNumber={pageNumber}
+    //         setTimerId={setTimerId}
+    //     />
+    // }
 
     return (
         <div id="main">
@@ -58,8 +120,10 @@ function FormForSearch({ inputValue, setInputValue, searchValue, setSearchValue,
                                     value={inputValue}
                                     onInput={(evt) => {
                                         setInputValue(evt.target.value);
-                                        setSearchValue('');
-                                        getIdOfFilm('');
+                                        // setSearchValue('');
+
+                                        setdetailsOfFilm('');
+
                                         document.querySelector('.films-heading').classList.add('hide');
                                         document.querySelector('.info-heading').classList.add('hide');
                                     }}
@@ -78,7 +142,7 @@ function FormForSearch({ inputValue, setInputValue, searchValue, setSearchValue,
                         <button
                             onClick={_ => {
                                 setPageNumber(1);
-                                setTimerId(0);
+                                // setTimerId(false);
                                 setSearchValue(inputValue);
                                 setInputValue('');
                             }}
@@ -90,21 +154,24 @@ function FormForSearch({ inputValue, setInputValue, searchValue, setSearchValue,
             </div>
             <div className="heading films-heading hide">Films:</div>
             <div id="result">
-                {searchValue && <FetchFilms
+                {/* {searchValue && <FetchFilms
                     text={searchValue}
                     detailsOfFilm={detailsOfFilm}
                     getIdOfFilm={getIdOfFilm}
                     pageNumber={pageNumber}
                     setTimerId={setTimerId}
-                />}
-                {/* {searchValue && (pageNumber === 2) && <FetchFilms
-                    text={searchValue}
-                    detailsOfFilm={detailsOfFilm}
-                    getIdOfFilm={getIdOfFilm}
-                    pageNumber={pageNumber}
-                    setTimerId={setTimerId}
-                />} */}
-                {/* {getNextPage()} */}
+                />
+                } */}
+
+                {
+
+
+                }
+
+
+
+
+
             </div>
             <div className="heading info-heading hide">Film info:</div>
             <div id="details">
@@ -121,12 +188,12 @@ function FormForSearch({ inputValue, setInputValue, searchValue, setSearchValue,
 
 
 
-function getNextPage() {
-    setPageNumber(pageNumber++)
+// function getNextPage() {
+//     setPageNumber(pageNumber++)
 
 
-    getInfoFromOMDb();
-    setTimerId(0);
-}
+//     getInfoFromOMDb();
+//     setTimerId(0);
+// }
 
 export default FormForSearch
