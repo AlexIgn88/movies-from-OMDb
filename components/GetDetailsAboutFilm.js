@@ -29,7 +29,6 @@ function GetDetailsAboutFilm({ id }) {
     }, []);
 
     if (error) return <div className="error">Oшибка {error.message}</div>;
-    // if (result) return <ShowDetailsAboutFilm obj={result} />
     if (result) return <div className="film-details">
         <div>
             <img className="details-poster" src={result.Poster} alt="poster" />
@@ -37,7 +36,7 @@ function GetDetailsAboutFilm({ id }) {
         <div className="film-details-info">
             <div>
                 <div className="heading info-heading">Film info</div>
-                <div className='notification'>Double Click for close</div>
+                <div className='notification'>Double click for close</div>
                 {/* <button className='close-details-window' onClick={(evt) => { closeWindow(null) }}>Close</button> */}
             </div>
             <div>
