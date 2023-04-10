@@ -1,10 +1,10 @@
-function FilmCards({ result, getIdOfFilm }) {
+function FilmCards({ films, setIdOfFilm }) {
     document.querySelector('.films-heading').classList.remove('hide');
     document.querySelector('.spinner').classList.remove('hide');
 
     return (
         <>
-            {result.Search.map(obj => (
+            {films.map(obj => (
                 <div className="film-card" key={obj.imdbID}>
                     <div>
                         <img className="poster" src={obj.Poster} alt="poster" />
@@ -15,7 +15,7 @@ function FilmCards({ result, getIdOfFilm }) {
                         <div className="year">{obj.Year}</div>
                         <button data-id={obj.imdbID} onClick={
                             evt => {
-                                getIdOfFilm(evt.currentTarget.closest('button').dataset.id);
+                                setIdOfFilm(evt.currentTarget.closest('button').dataset.id);
                             }
                         }>Details</button>
                     </div>
