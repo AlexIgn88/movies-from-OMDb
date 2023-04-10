@@ -7,7 +7,6 @@ function DetailedFilmCard({ film }) {
             <div>
                 <div className="heading info-heading">Film info</div>
                 <div className='notification'>Double click for close</div>
-                {/* <button className='close-details-window' onClick={(evt) => { closeWindow(null) }}>Close</button> */}
             </div>
             <div>
                 <div>Title:</div>

@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import GetFilms from '../components/GetFilms'
 import GetDetailsAboutFilm from '../components/GetDetailsAboutFilm'
+import Notification from '../components/Notification'
 
 function SearchOnOMDb() {
     const [inputValue, setInputValue] = useState(''),
         [selectValue, setSelectValue] = useState('movie'),
         [searchValue, setSearchValue] = useState(''),
-        [idOfFilm, setIdOfFilm] = useState(null);
+        [idOfFilm, setIdOfFilm] = useState(null),
+        [notification, setNotification] = useState(null);
 
     return <div id="main">
         <div id="outside-div-of-form-for-search">
@@ -58,12 +60,12 @@ function SearchOnOMDb() {
             {searchValue && <GetFilms
                 searchValue={searchValue}
                 setIdOfFilm={setIdOfFilm}
+                setNotification={setNotification}
             />}
         </div>
-        {idOfFilm && <div id="details" onDoubleClick={(evt) => setIdOfFilm(null)}>
-            <GetDetailsAboutFilm
-                id={idOfFilm}
-            />
+        {(idOfFilm || notification) && <div id="details" onDoubleClick={(evt) => { setIdOfFilm(null); setNotification(null) }}>
+            {idOfFilm && < GetDetailsAboutFilm id={idOfFilm} />}
+            {notification && <Notification notification={notification} />}
         </div>}
     </div>
 }

@@ -1,25 +1,26 @@
 import { useState, useEffect } from 'react';
 import DetailedFilmCard from '../components/DetailedFilmCard'
+import Notification from '../components/Notification'
+import Spinner from '../components/Spinner'
 
 function GetDetailsAboutFilm({ id }) {
     const
-        [result, setResult] = useState(null),
-        [error, setError] = useState(null);
+        [fetching, setFetching] = useState(true),
+        [error, setError] = useState(null),
+        [film, setFilm] = useState(null);
 
     useEffect(() => {
-        async function go() {
-            try {
-                setError(null);
-                const response = await fetch(
-                    "https://www.omdbapi.com/?apikey=edd125b0&i=" + id
-                );
-                if (!response.ok) throw new Error(response.status);
-                setResult(await response.json());
-            } catch (err) {
-                setError(err);
-            }
-        }
-        go();
+        setError(null);
+        fetch(`https://www.omdbapi.com/?apikey=edd125b0&i=${id}`)
+            .then(response => response.json())
+            .then(result => {
+
+                console.log('GetDetailsAboutFilm - result', result);
+
+                if (result.Response === 'True') { setFilm(result) } else setError(result.Error);
+            })
+            .catch(err => setError(err.message))
+            .finally(() => setFetching(false));
     }, [id]);
 
     useEffect(() => {
@@ -29,8 +30,11 @@ function GetDetailsAboutFilm({ id }) {
         };
     }, []);
 
-    if (error) return <div className="error">Oшибка {error.message}</div>;
-    if (result) return <DetailedFilmCard film={result} />
+    if (error) return <Notification notification={error} />
+    if (fetching || film) return <>
+        {fetching && <Spinner str={'on-center'} />}
+        {film && <DetailedFilmCard film={film} />}
+    </>
 }
 
 export default GetDetailsAboutFilm
