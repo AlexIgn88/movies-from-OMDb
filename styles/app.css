@@ -1,9 +1,9 @@
 h1 {
-    text-decoration:dotted underline;
+    text-decoration: dotted underline;
 }
 
 body {
-    background-color: #fbf2e9;
+    background-color: rgb(204, 180, 130, 1);
 }
 
 #main,
@@ -74,20 +74,43 @@ button {
 
 #result {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.film-cards {
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
 #details {
+    position: fixed;
+    top: 0px;
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: rgb(99, 95, 91, 0.7);
+    height: 100vmax;
+    width: 100vmax;
+}
+
+.film-details {
+    position: fixed;
+    top: 100px;
+    background-color: rgb(204, 180, 130, 1);
+    height: 70vh;
+    width: 90vw;
 }
 
 .spinner {
     margin-top: 30px;
     display: flex;
     justify-content: center;
+    height: 200px;
 }
 
 .no-results {
@@ -108,7 +131,7 @@ button {
 
 .poster {
     width: 200px;
-    height: 300px;
+    height: 250px;
 }
 
 .film-info,
@@ -131,9 +154,21 @@ button {
     display: flex;
 }
 
+.film-details-info>div:first-child {
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification {
+    font-style: italic;
+    color: gray;
+    font-size: 14px;
+}
+
 .details-poster {
     width: 300px;
-    height: 500px;
+    height: 350px;
 }
 
 .film-details-info>div>div:first-child {
@@ -144,3 +179,23 @@ button {
 .hide {
     display: none;
 }
+
+.button-up {
+    position: fixed;
+    right: 1%;
+    bottom: 10%;
+    background-color: rgb(248, 152, 10)
+    /* transition: opacity 600ms; */
+}
+
+.button-up:hover {
+    background-color: rgb(190, 117, 8);
+}
+
+.button-up:active {
+    background-color: rgb(118, 73, 6);
+}
+
+/* .opacity {
+    opacity: 0%;
+} */

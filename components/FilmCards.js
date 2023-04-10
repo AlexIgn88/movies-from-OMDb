@@ -1,7 +1,4 @@
 function FilmCards({ films, setIdOfFilm }) {
-    document.querySelector('.films-heading').classList.remove('hide');
-    document.querySelector('.spinner').classList.remove('hide');
-
     return (
         <>
             {films.map(obj => (
