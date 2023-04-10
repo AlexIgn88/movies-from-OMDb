@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import GetFilms from './GetFilms'
+import GetFilms from '../components/GetFilms'
 import GetDetailsAboutFilm from '../components/GetDetailsAboutFilm'
 
 function SearchOnOMDb() {

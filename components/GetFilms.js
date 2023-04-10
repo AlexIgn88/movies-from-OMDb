@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import FilmCards from './FilmCards'
+import FilmCards from '../components/FilmCards'
 
 function GetFilms({ searchValue, setIdOfFilm }) {
     const

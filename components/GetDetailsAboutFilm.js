@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import DetailedFilmCard from '../components/DetailedFilmCard'
 
 function GetDetailsAboutFilm({ id }) {
     const
@@ -29,50 +30,7 @@ function GetDetailsAboutFilm({ id }) {
     }, []);
 
     if (error) return <div className="error">Oшибка {error.message}</div>;
-    if (result) return <div className="film-details">
-        <div>
-            <img className="details-poster" src={result.Poster} alt="poster" />
-        </div>
-        <div className="film-details-info">
-            <div>
-                <div className="heading info-heading">Film info</div>
-                <div className='notification'>Double click for close</div>
-                {/* <button className='close-details-window' onClick={(evt) => { closeWindow(null) }}>Close</button> */}
-            </div>
-            <div>
-                <div>Title:</div>
-                <div className="title">{result.Title}</div>
-            </div>
-            <div>
-                <div>Released:</div>
-                <div className="released">{result.Released}</div>
-            </div>
-            <div>
-                <div>Genre:</div>
-                <div className="genre">{result.Genre}</div>
-            </div>
-            <div>
-                <div>Country:</div>
-                <div className="country">{result.Country}</div>
-            </div>
-            <div>
-                <div>Director:</div>
-                <div className="director">{result.Director}</div>
-            </div>
-            <div>
-                <div>Writer:</div>
-                <div className="writer">{result.Writer}</div>
-            </div>
-            <div>
-                <div>Actors:</div>
-                <div className="actors">{result.Actors}</div>
-            </div>
-            <div>
-                <div>Awards:</div>
-                <div className="awards">{result.Awards}</div>
-            </div>
-        </div>
-    </div>
+    if (result) return <DetailedFilmCard film={result} />
 }
 
 export default GetDetailsAboutFilm
