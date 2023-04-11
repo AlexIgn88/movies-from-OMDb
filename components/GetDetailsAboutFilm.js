@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import DetailedFilmCard from '../components/DetailedFilmCard'
 import Notification from '../components/Notification'
 import Spinner from '../components/Spinner'
@@ -7,7 +7,8 @@ function GetDetailsAboutFilm({ id }) {
     const
         [fetching, setFetching] = useState(true),
         [error, setError] = useState(null),
-        [film, setFilm] = useState(null);
+        [film, setFilm] = useState(null),
+        DetailedFilmCardWithMemo = memo(DetailedFilmCard);
 
     useEffect(() => {
         setError(null);
@@ -33,7 +34,7 @@ function GetDetailsAboutFilm({ id }) {
     if (error) return <Notification notification={error} />
     if (fetching || film) return <>
         {fetching && <Spinner str={'on-center'} />}
-        {film && <DetailedFilmCard film={film} />}
+        {film && <DetailedFilmCardWithMemo film={film} />}
     </>
 }
 

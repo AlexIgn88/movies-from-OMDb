@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, memo } from 'react'
 import FilmCards from '../components/FilmCards'
 import Spinner from '../components/Spinner'
 
@@ -10,7 +10,8 @@ function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
         [currentPage, setCurrentPage] = useState(1),
         [totalCount, setTotalCount] = useState(0),
         [showButtonScrollToTop, setShowButtonScrollToTop] = useState(false),
-        [scrollToTop, setScrollToTop] = useState(false);
+        [scrollToTop, setScrollToTop] = useState(false),
+        FilmCardsWithMemo = memo(FilmCards);
 
     useEffect(() => {
         setError(null);
@@ -68,7 +69,7 @@ function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
         {films && <>
             <div className="heading films-heading">Films: {totalCount} films found</div>
             <div className='film-cards'>
-                <FilmCards
+                <FilmCardsWithMemo
                     films={films}
                     setIdOfFilm={setIdOfFilm}
                 />
@@ -80,4 +81,4 @@ function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
     </>
 }
 
-export default GetFilms
+export default memo(GetFilms)

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react'
 import GetFilms from '../components/GetFilms'
 import GetDetailsAboutFilm from '../components/GetDetailsAboutFilm'
 import Notification from '../components/Notification'
@@ -16,7 +16,7 @@ function SearchOnOMDb() {
             setSearchValue([inputValue, selectValue]); 
         }
     };
-
+    // console.log('SearchOnOMDb');
     return <div id="main">
         <div id="outside-div-of-form-for-search">
             <div className="heading">Search:</div>
@@ -78,4 +78,4 @@ function SearchOnOMDb() {
     </div>
 }
 
-export default SearchOnOMDb
+export default memo(SearchOnOMDb)
