@@ -269,6 +269,10 @@ button:active {
         flex-wrap: wrap;
     }
 
+    .film-details-info>div {
+        flex-wrap: wrap;
+    }
+
     .details-poster {
         display: none;
     }
