@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(204, 180, 130, 1);
+    background-image: url("/background.jpg");
 }
 
 #main,
@@ -8,6 +8,26 @@ select,
 select option,
 button {
     font-size: 20px;
+}
+
+input,
+select {
+    background-color: rgb(250, 189, 97);
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: rgb(248, 152, 10);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(190, 117, 8);
+}
+
+button:active {
+    background-color: rgb(118, 73, 6);
 }
 
 #main,
@@ -37,6 +57,13 @@ button {
 #main {
     font-family: sans-serif;
     align-items: center;
+}
+
+#form-for-search,
+.film-cards,
+.film-details,
+.error {
+    background-color: rgb(250, 203, 25);
 }
 
 .heading {
@@ -108,7 +135,6 @@ button {
 .film-details {
     position: fixed;
     top: 100px;
-    background-color: rgb(204, 180, 130, 1);
     height: 70vh;
     width: 90vw;
 }
@@ -119,7 +145,6 @@ button {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(204, 180, 130, 1);
     height: 50vh;
     width: 50vw;
 }
@@ -202,4 +227,32 @@ button {
 
 .button-up:active {
     background-color: rgb(118, 73, 6);
+}
+
+@media (max-width: 600px) {
+
+    #main,
+    input,
+    select,
+    select option,
+    button,
+    .film-info .year {
+        font-size: 16px;
+    }
+
+    #form-for-search,
+    .film-card,
+    .film-details {
+        padding: 5px;
+    }
+
+    #form-for-search div {
+        margin: 5px;
+        column-gap: 5px;
+    }
+
+    .details-poster {
+        width: 200px;
+        height: 300px;
+    }
 }

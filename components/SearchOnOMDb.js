@@ -10,6 +10,13 @@ function SearchOnOMDb() {
         [idOfFilm, setIdOfFilm] = useState(null),
         [notification, setNotification] = useState(null);
 
+    const handleOnKeyDown = (evt) => {
+        if (evt.keyCode === 13) {
+            evt.preventDefault(); 
+            setSearchValue([inputValue, selectValue]); 
+        }
+    };
+
     return <div id="main">
         <div id="outside-div-of-form-for-search">
             <div className="heading">Search:</div>
@@ -29,6 +36,7 @@ function SearchOnOMDb() {
                                     setInputValue(evt.target.value);
                                     setSearchValue('');
                                 }}
+                                onKeyDown={(evt) => handleOnKeyDown(evt)}
                             />
                         </div>
                         <div>
@@ -48,7 +56,7 @@ function SearchOnOMDb() {
                 <div>
                     <button
                         onClick={_ => {
-                            setSearchValue([inputValue, selectValue]);;
+                            setSearchValue([inputValue, selectValue]);
                         }}
                     >
                         Search

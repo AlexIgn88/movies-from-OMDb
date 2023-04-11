@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import FilmCards from '../components/FilmCards'
 import Spinner from '../components/Spinner'
 
