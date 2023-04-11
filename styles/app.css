@@ -252,7 +252,25 @@ button:active {
     }
 
     .details-poster {
-        width: 200px;
-        height: 300px;
+        width: 150px;
+        height: 200px;
     }
+}
+
+@media (max-width: 460px) {
+
+    .film-info,
+    .film-details-info {
+        gap: 5px;
+    }
+
+    .film-details-info {
+        justify-content: normal;
+        flex-wrap: wrap;
+    }
+
+    .details-poster {
+        display: none;
+    }
+
 }
