@@ -16,7 +16,7 @@ function SearchOnOMDb() {
             setSearchValue([inputValue, selectValue]); 
         }
     };
-    // console.log('SearchOnOMDb');
+    // console.log('SearchOnOMDb');  
     return <div id="main">
         <div id="outside-div-of-form-for-search">
             <div className="heading">Search:</div>

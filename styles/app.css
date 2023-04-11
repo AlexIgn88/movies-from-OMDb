@@ -263,7 +263,7 @@ button:active {
     color: transparent
 }
 
-@media (max-width: 800px) {
+@media (max-width: 800px) {  
 
     #main,
     input,

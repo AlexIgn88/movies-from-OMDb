@@ -3,6 +3,6 @@ function Notification({ notification }) {
         <div>{notification}</div>
         <div className='notification'>Double click for close</div>
     </div>
-}
+}  
 
 export default Notification
