@@ -77,6 +77,8 @@ button:active {
 #form-for-search select,
 .film-card,
 .film-details,
+.poster,
+.details-poster,
 .error {
     border: 1px solid black;
     border-radius: 5px;
@@ -174,8 +176,7 @@ button:active {
     height: 250px;
 }
 
-.film-info,
-.film-details-info {
+.film-info {
     justify-content: space-evenly;
     gap: 30px;
 }
@@ -186,6 +187,15 @@ button:active {
 
 .film-info .year {
     font-size: 22px;
+}
+
+.film-details-info {
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-grow: 1;
+    margin-left: 50px;
+    margin-right: 10px;
+    margin-bottom: 50px;
 }
 
 .film-details-info>div:first-child {
@@ -203,6 +213,10 @@ button:active {
 .details-poster {
     width: 300px;
     height: 350px;
+}
+
+.film-details-info>div {
+    flex-wrap: wrap;
 }
 
 .film-details-info>div>div:first-child {
@@ -229,7 +243,7 @@ button:active {
     background-color: rgb(118, 73, 6);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
     #main,
     input,
@@ -251,6 +265,12 @@ button:active {
         column-gap: 5px;
     }
 
+    .film-details-info {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        margin-right: 5px;
+    }
+
     .details-poster {
         width: 150px;
         height: 200px;
@@ -267,10 +287,7 @@ button:active {
     .film-details-info {
         justify-content: normal;
         flex-wrap: wrap;
-    }
-
-    .film-details-info>div {
-        flex-wrap: wrap;
+        margin: 5px;
     }
 
     .details-poster {
