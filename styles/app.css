@@ -247,6 +247,22 @@ button:active {
     background-color: rgb(118, 73, 6);
 }
 
+:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+:focus::-moz-placeholder {
+    color: transparent
+}
+
+:focus:-moz-placeholder {
+    color: transparent
+}
+
+:focus:-ms-input-placeholder {
+    color: transparent
+}
+
 @media (max-width: 800px) {
 
     #main,

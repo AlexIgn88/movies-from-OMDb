@@ -32,6 +32,7 @@ function SearchOnOMDb() {
                                 type="search"
                                 id="search"
                                 value={inputValue}
+                                placeholder={'name of ' + selectValue}
                                 onInput={(evt) => {
                                     setInputValue(evt.target.value);
                                     setSearchValue('');
