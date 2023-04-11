@@ -151,6 +151,10 @@ button:active {
     width: 50vw;
 }
 
+.error>div {
+    text-align: center;
+}
+
 .spinner {
     margin-top: 30px;
     justify-content: center;
