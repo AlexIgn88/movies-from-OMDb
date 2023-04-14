@@ -12,8 +12,8 @@ function SearchOnOMDb() {
 
     const handleOnKeyDown = (evt) => {
         if (evt.keyCode === 13) {
-            evt.preventDefault(); 
-            setSearchValue([inputValue, selectValue]); 
+            evt.preventDefault();
+            setSearchValue([inputValue, selectValue]);
         }
     };
     // console.log('SearchOnOMDb');  
@@ -72,9 +72,22 @@ function SearchOnOMDb() {
                 setNotification={setNotification}
             />}
         </div>
-        {(idOfFilm || notification) && <div id="details" onDoubleClick={(evt) => { setIdOfFilm(null); setNotification(null) }}>
-            {idOfFilm && < GetDetailsAboutFilm id={idOfFilm} />}
-            {notification && <Notification notification={notification} />}
+        {(idOfFilm || notification) && <div id="details"
+            onClick={(evt) => {
+                if (!evt.target.closest('.pop-up-window')) {
+                    setIdOfFilm(null);
+                    setNotification(null);
+                }
+            }}
+        >
+            {idOfFilm && < GetDetailsAboutFilm
+                id={idOfFilm}
+                setIdOfFilm={setIdOfFilm}
+            />}
+            {notification && <Notification
+                notification={notification}
+                setNotification={setNotification}
+            />}
         </div>}
     </div>
 }

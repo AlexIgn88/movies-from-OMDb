@@ -3,7 +3,7 @@ import DetailedFilmCard from '../components/DetailedFilmCard'
 import Notification from '../components/Notification'
 import Spinner from '../components/Spinner'
 
-function GetDetailsAboutFilm({ id }) {
+function GetDetailsAboutFilm({ id, setIdOfFilm }) {
     const
         [fetching, setFetching] = useState(true),
         [error, setError] = useState(null),
@@ -31,10 +31,16 @@ function GetDetailsAboutFilm({ id }) {
         };
     }, []);
 
-    if (error) return <Notification notification={error} />
+    if (error) return <Notification
+        notification={error}
+        setNotification={setIdOfFilm}
+    />
     if (fetching || film) return <>
         {fetching && <Spinner str={'on-center'} />}
-        {film && <DetailedFilmCardWithMemo film={film} />}
+        {film && <DetailedFilmCardWithMemo
+            film={film}
+            setIdOfFilm={setIdOfFilm}
+        />}
     </>
 }
 

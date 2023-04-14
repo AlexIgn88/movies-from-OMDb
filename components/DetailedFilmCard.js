@@ -1,12 +1,12 @@
-function DetailedFilmCard({ film }) {
-    return <div className="film-details">
+function DetailedFilmCard({ film, setIdOfFilm }) {
+    return <div className="film-details pop-up-window">
         <div>
             <img className="details-poster" src={film.Poster} alt="poster" />
         </div>
         <div className="film-details-info">
             <div>
                 <div className="heading info-heading">Film info</div>
-                <div className='notification'>Double click for close</div>
+                <div><button onClick={() => setIdOfFilm(null)}>Click here for close</button></div>
             </div>
             <div>
                 <div>Title:</div>
