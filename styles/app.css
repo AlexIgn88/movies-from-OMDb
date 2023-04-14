@@ -237,6 +237,9 @@ button:active {
     right: 1%;
     bottom: 10%;
     background-color: rgb(248, 152, 10);
+    border: 2px solid red;
+    width: 40px;
+    height: 50px;
 }
 
 .button-up:hover {
@@ -263,7 +266,7 @@ button:active {
     color: transparent
 }
 
-@media (max-width: 800px) {  
+@media (max-width: 800px) {
 
     #main,
     input,
@@ -294,6 +297,11 @@ button:active {
     .details-poster {
         width: 150px;
         height: 200px;
+    }
+
+    .button-up {
+        width: 35px;
+        height: 40px;
     }
 }
 
