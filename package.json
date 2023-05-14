@@ -1,9 +1,4 @@
 {
-  "dependencies": {
-    "next": "^13.2.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "name": "movies-from-omdb",
   "version": "1.0.0",
   "main": "index.js",
@@ -19,11 +14,16 @@
     "url": "git+https://github.com/AlexIgn88/movies-from-OMDb.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alex",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AlexIgn88/movies-from-OMDb/issues"
   },
   "homepage": "https://github.com/AlexIgn88/movies-from-OMDb#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "next": "^13.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
