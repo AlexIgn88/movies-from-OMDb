@@ -1,7 +1,7 @@
-import { useState, memo } from 'react'
-import GetFilms from '../components/GetFilms'
-import GetDetailsAboutFilm from '../components/GetDetailsAboutFilm'
-import Notification from '../components/Notification'
+import { useState, memo } from 'react';
+import GetFilms from '../components/GetFilms';
+import GetDetailsAboutFilm from '../components/GetDetailsAboutFilm';
+import Notification from '../components/Notification';
 
 function SearchOnOMDb() {
     const [inputValue, setInputValue] = useState(''),

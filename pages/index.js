@@ -1,4 +1,4 @@
-import SearchOnOMDb from '../components/SearchOnOMDb'
+import SearchOnOMDb from '../components/SearchOnOMDb';
 import Head from 'next/head';
 
 export default function App() {

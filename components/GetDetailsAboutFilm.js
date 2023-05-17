@@ -1,7 +1,7 @@
 import { useState, useEffect, memo } from 'react';
-import DetailedFilmCard from '../components/DetailedFilmCard'
-import Notification from '../components/Notification'
-import Spinner from '../components/Spinner'
+import DetailedFilmCard from '../components/DetailedFilmCard';
+import Notification from '../components/Notification';
+import Spinner from '../components/Spinner';
 
 function GetDetailsAboutFilm({ id, setIdOfFilm }) {
     const

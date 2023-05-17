@@ -1,6 +1,6 @@
-import { useState, useEffect, memo } from 'react'
-import FilmCards from '../components/FilmCards'
-import Spinner from '../components/Spinner'
+import { useState, useEffect, memo } from 'react';
+import FilmCards from '../components/FilmCards';
+import Spinner from '../components/Spinner';
 
 function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
     const
