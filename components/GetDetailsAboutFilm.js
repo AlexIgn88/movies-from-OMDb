@@ -1,7 +1,6 @@
 import { useState, useEffect, memo } from 'react';
 import DetailedFilmCard from '../components/DetailedFilmCard';
 import Notification from '../components/Notification';
-import Spinner from '../components/Spinner';
 
 function GetDetailsAboutFilm({ id, setIdOfFilm }) {
     const
@@ -16,7 +15,7 @@ function GetDetailsAboutFilm({ id, setIdOfFilm }) {
             .then(response => response.json())
             .then(result => {
 
-                console.log('GetDetailsAboutFilm - result', result);
+                // console.log('GetDetailsAboutFilm - result', result);
 
                 if (result.Response === 'True') { setFilm(result) } else setError(result.Error);
             })
@@ -36,7 +35,7 @@ function GetDetailsAboutFilm({ id, setIdOfFilm }) {
         setNotification={setIdOfFilm}
     />
     if (fetching || film) return <>
-        {fetching && <Spinner str={'on-center'} />}
+        {fetching && <div className='spinner on-center'></div>}
         {film && <DetailedFilmCardWithMemo
             film={film}
             setIdOfFilm={setIdOfFilm}

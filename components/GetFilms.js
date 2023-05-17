@@ -1,6 +1,5 @@
 import { useState, useEffect, memo } from 'react';
 import FilmCards from '../components/FilmCards';
-import Spinner from '../components/Spinner';
 
 function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
     const
@@ -20,7 +19,7 @@ function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
                 .then(response => response.json())
                 .then(result => {
 
-                    console.log('ShowFilms - result', result);
+                    // console.log('ShowFilms - result', result);
 
                     if (result.Response === 'True') {
                         setTotalCount(+result.totalResults);
@@ -63,9 +62,9 @@ function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
             && (films.length < totalCount)) setFetching(true);
     }
 
-    console.log('ShowFilms. films= ', films);
+    // console.log('ShowFilms. films= ', films);
     // console.log('ShowFilms. error= ', error);
-    console.log(totalCount);
+    // console.log(totalCount);
 
     useEffect(() => {
         if (error) setNotification(error);
@@ -83,7 +82,7 @@ function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
                 {scrollToTop && <ScrollToTopOnMount />}
             </div>
         </>}
-        {fetching && <Spinner />}
+        {fetching && <div className='spinner'></div>}
     </>
 }
 
