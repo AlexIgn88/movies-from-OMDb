@@ -48,6 +48,11 @@ function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
         }
     }, [films, totalCount])
 
+    useEffect(() => {
+        if (window.innerWidth === document.documentElement.clientWidth
+            && films.length < totalCount) setFetching(true);
+    }, [films, totalCount])
+
     const scrollHadler = (evt) => {
         console.log('scrollHadler: films.length and totalCount', films.length, totalCount, films.length < totalCount);
 
@@ -58,8 +63,9 @@ function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
             && (films.length < totalCount)) setFetching(true);
     }
 
-    // console.log('ShowFilms. films= ', films);
+    console.log('ShowFilms. films= ', films);
     // console.log('ShowFilms. error= ', error);
+    console.log(totalCount);
 
     useEffect(() => {
         if (error) setNotification(error);
