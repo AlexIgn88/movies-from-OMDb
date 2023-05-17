@@ -53,7 +53,7 @@ function GetFilms({ searchValue, setIdOfFilm, setNotification }) {
     }, [films, totalCount])
 
     const scrollHadler = (evt) => {
-        console.log('scrollHadler: films.length and totalCount', films.length, totalCount, films.length < totalCount);
+        // console.log('scrollHadler: films.length and totalCount', films.length, totalCount, films.length < totalCount);
 
         if (window.scrollY > 600) setShowButtonScrollToTop(true);
         else setShowButtonScrollToTop(false)
